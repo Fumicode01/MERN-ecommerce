@@ -1,7 +1,7 @@
 const Order = require("../models/Order");
 const {
   verifyToken,
-  verifyTokenAndAuthorization,
+  verifyTokenAndAuthorisation,
   verifyTokenAndAdmin,
 } = require("./verifyToken");
 
@@ -47,7 +47,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET USER ORDERS
-router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/find/:userId", verifyTokenAndAuthorisation, async (req, res) => {
   try {
     const orders = await Order.find({ userId: req.params.userId });
     res.status(200).json(orders);

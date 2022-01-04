@@ -1,7 +1,7 @@
 const Product = require("../models/Product");
 const {
   verifyToken,
-  verifyTokenAndAuthorization,
+  verifyTokenAndAuthorisation,
   verifyTokenAndAdmin,
 } = require("./verifyToken");
 
