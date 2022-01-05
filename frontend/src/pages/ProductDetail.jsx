@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux"
+import { useDispatch } from "react-redux"
 
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
@@ -126,6 +128,7 @@ const ProductDetail = () => {
     const [quantity, setQuantity] = useState(1)
     const [color, setColor] = useState("")
     const [size, setSize] = useState("")
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -147,7 +150,10 @@ const ProductDetail = () => {
         }
     }
 
-    console.log(product.color)
+    const handleClick = () => {
+        //update cart
+        dispatch(addProduct({ ...product, quantity, color, size }))
+    }
   return (
     <Container>
       <Navbar />
@@ -186,7 +192,7 @@ const ProductDetail = () => {
               <Amount>{quantity}</Amount>
               <Add  onClick={() => handleQuantity("inc")}/>
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
