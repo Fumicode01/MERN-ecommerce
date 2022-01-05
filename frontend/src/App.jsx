@@ -1,4 +1,4 @@
-import './App.css';
+import { useSelector } from "react-redux"
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import Home from './pages/Home';
@@ -10,6 +10,7 @@ import Register from './pages/Register'
 
 
 function App() {
+    const user = useSelector((state) => state.user.currentUser)
   return (
         <Router>
             <Routes>
