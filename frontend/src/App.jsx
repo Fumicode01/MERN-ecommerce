@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
@@ -18,7 +18,8 @@ function App() {
                 <Route path="/products/:category" element={<ProductList />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/login" element={<Login />} />
+                {/* <Route path="/login" element={<Login />} /> */}
+                <Route path="/login" element={user ? <Navigate replace to="/"/> : <Login />}/>
                 <Route path="/register" element={<Register />} />
                 {/* {user ? <Route path="/" element={<Home />} /> : <Route path="/login" element={<Login />} />} */}
             </Routes>
