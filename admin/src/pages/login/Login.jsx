@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/apiCalls";
 
-const Login = () => {
+const Login = ({user}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ const Login = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        margin: "0 auto"
       }}
     >
       <input

@@ -18,15 +18,10 @@ function App() {
                 <Route path="/products/:category" element={<ProductList />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart />} />
-                {/* <Route path="/login" element={<Login />} /> */}
                 <Route path="/login" element={user ? <Navigate replace to="/"/> : <Login />}/>
                 <Route path="/register" element={<Register />} />
-                {/* {user ? <Route path="/" element={<Home />} /> : <Route path="/login" element={<Login />} />} */}
             </Routes>
         </Router>
-        // <Home />
-        // <ProductList />
-        // <ProductDetail />
   );
 }
 
