@@ -10,6 +10,7 @@ import { userRequest } from "../../requestMethods";
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
 
+  console.log(userStats)
   const MONTHS = useMemo(
     () => [
       "Jan",
