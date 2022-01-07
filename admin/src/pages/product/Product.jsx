@@ -15,6 +15,7 @@ export default function Product() {
   const product = useSelector((state) =>
     state.product.products.find((product) => product._id === productId)
   );
+  console.log(product)
 
   const MONTHS = useMemo(
     () => [
@@ -105,7 +106,7 @@ export default function Product() {
           <div className="productFormRight">
             <div className="productUpload">
               <img src={product.img} alt="" className="productUploadImg" />
-              <label for="file">
+              <label htmlFor="file">
                 <Publish />
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
